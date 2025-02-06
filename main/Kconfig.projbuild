@@ -5,8 +5,6 @@ menu "ESP32 U2F GPIO Configuration"
     config BLINK_GPIO
         int "Blink GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 15 if IDF_TARGET_ESP32S2
-        default 48 if IDF_TARGET_ESP32S3
         default 8
         help
             GPIO number (IOxx) to blink on and off the LED.
@@ -14,7 +12,7 @@ menu "ESP32 U2F GPIO Configuration"
 
     config BUTTON_ENABLE
         bool "enable Button support"
-        default n
+        default y
         help
             Use button to confirm enter,Default use automatically enter
 
@@ -22,7 +20,7 @@ menu "ESP32 U2F GPIO Configuration"
     	depends on BUTTON_ENABLE
         int "Button GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 0
+        default 7
         help
             Button number (IOxx) to button click.
 
